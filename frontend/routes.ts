@@ -3,6 +3,7 @@ import Role from './generated/com/example/application/data/Role';
 import { appStore } from './stores/app-store';
 import './views/helloworld/hello-world-view';
 import './views/main-layout';
+import './views/settings/settings-view'
 
 export type ViewRoute = Route & {
   title?: string;
@@ -66,6 +67,20 @@ export const views: ViewRoute[] = [
       return;
     },
   },
+  {
+      path: 'settings',
+      component: 'settings-view',
+      requiresLogin: true,
+      icon: 'la la-file',
+      title: 'Settings',
+      action: async (_context, _command) => {
+        if (!hasAccess(_context.route)) {
+          return _command.redirect('login');
+        }
+        await import('./views/settings/settings-view');
+        return;
+      },
+    },
 ];
 export const routes: ViewRoute[] = [
   {

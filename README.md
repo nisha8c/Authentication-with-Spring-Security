@@ -1,4 +1,9 @@
+## Steps I performed so far:
+1. npx @hilla/cli init --auth hilla-with-auth
+2. 
+
 # Custom project from Hilla
+
 
 This project can be used as a starting point to create your own Hilla application with Spring Boot.
 It contains all the necessary configuration and some placeholder files to get you started.
